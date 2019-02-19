@@ -75,7 +75,7 @@ class ToolsTests < ThinpTestCase
   #--------------------------------
 
   DUMP1 =<<EOF
-<superblock uuid="" time="0" transaction="0" data_block_size="128" nr_data_blocks="0">
+<superblock uuid="" time="0" transaction="0" flags="0" version="2" data_block_size="128" nr_data_blocks="0">
   <device dev_id="0" mapped_blocks="0" transaction="0" creation_time="0" snap_time="0">
   </device>
   <device dev_id="1" mapped_blocks="0" transaction="0" creation_time="0" snap_time="0">
@@ -84,7 +84,7 @@ class ToolsTests < ThinpTestCase
 EOF
 
   DUMP2 =<<EOF
-<superblock uuid="" time="0" transaction="0" data_block_size="128" nr_data_blocks="0">
+<superblock uuid="" time="0" transaction="0" flags="0" version="2" data_block_size="128" nr_data_blocks="0">
   <device dev_id="0" mapped_blocks="16384" transaction="0" creation_time="0" snap_time="0">
     <range_mapping origin_begin="0" data_begin="0" length="16384" time="0"/>
   </device>
@@ -94,7 +94,7 @@ EOF
 EOF
 
   DUMP3 =<<EOF
-<superblock uuid="" time="0" transaction="0" data_block_size="128" nr_data_blocks="0">
+<superblock uuid="" time="0" transaction="0" flags="0" version="2" data_block_size="128" nr_data_blocks="0">
   <device dev_id="0" mapped_blocks="16384" transaction="0" creation_time="0" snap_time="0">
     <range_mapping origin_begin="0" data_begin="0" length="16384" time="0"/>
   </device>
