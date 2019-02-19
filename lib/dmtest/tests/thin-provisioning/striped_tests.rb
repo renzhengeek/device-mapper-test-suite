@@ -41,7 +41,16 @@ class StripesOnThinStack
     with_dev(pool_table) do |pool|
       ids = (0..(@nr_stripes - 1)).to_a
       with_new_thins(pool, @stripe_width, *ids) do |*stripes|
-        stripe_pairs = stripes.map {|dev| [dev, 0]}
+	puts "\n"
+	dms = stripes[0]
+	devs = Array.new
+	for dm in dms do
+		puts dm.class
+		devs << dm.to_s
+	end
+	puts devs.length
+        stripe_pairs = devs.map {|dev| [dev, 0]}
+	puts stripe_pairs
         stripe_table = Table.new(StripeTarget.new(@stripe_width * @nr_stripes,
                                                   @nr_stripes,
                                                   @chunk_size,
@@ -85,7 +94,16 @@ class PoolOnStripedStack
 
     tables = stripe_range.map {|n| tvm.table(stripe_name(n))}
     with_devs(*tables) do |*stripes|
-      stripe_pairs = stripes.map {|dev| [dev, 0]}
+	puts "\n"
+	dms = stripes[0]
+	devs = Array.new
+	for dm in dms do
+		puts dm.class
+		devs << dm.to_s
+	end
+	puts devs.length
+        stripe_pairs = devs.map {|dev| [dev, 0]}
+	puts stripe_pairs
       stripe_table = Table.new(StripeTarget.new(stripe_width * @nr_stripes,
                                                 @nr_stripes,
                                                 @chunk_size,

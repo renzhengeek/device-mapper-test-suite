@@ -171,7 +171,13 @@ class SnapshotTests < ThinpTestCase
       end
 
       with_thins(pool, @volume_size, 0, 1, 2, 3, 4, 5) do |*thins|
-        in_parallel(*thins) {|thin| dt_device(thin)}
+        #in_parallel(*thins) {|thin| dt_device(thin)}
+        in_parallel(*thins) do |thin|
+		puts "thin: #{thin.class}"
+		thins = thin
+		thins.each() {|thin| dt_device(thin)}
+		#dt_device(thin)
+	end
       end
     end
   end
@@ -187,8 +193,9 @@ class SnapshotTests < ThinpTestCase
       end
 
       with_thins(pool, @volume_size, 0, 1, 2, 3, 4, 5) do |*thins|
+	thins = thins[0]
         thins.each do |thin|
-          wipe_device(thin)
+          wipe_device(thin.path)
         end
       end
     end
