@@ -245,7 +245,7 @@ class SnapshotTests < ThinpTestCase
   define_test :many_snaps_with_changes do
     fs_type = :ext4
 
-    with_standard_pool(gig(100)) do |pool|
+    with_standard_pool(gig(20)) do |pool|
       with_new_thin(pool, gig(20), 0) do |thin|
         git_prepare(thin, fs_type);
 
@@ -263,7 +263,7 @@ class SnapshotTests < ThinpTestCase
   define_test :try_and_create_duplicates do
     fs_type = :ext4
 
-    with_standard_pool(gig(100)) do |pool|
+    with_standard_pool(gig(20)) do |pool|
       with_new_thin(pool, gig(20), 0) do |thin|
         git_prepare(thin, fs_type);
 
